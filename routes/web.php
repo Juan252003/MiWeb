@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\heladosController;
 use App\Http\Controllers\ControladorPrecios;
 use App\Http\Controllers\cursoController;
+use App\Http\Controllers\DocenteController;
 
 //asi se llama una ruta
 
@@ -59,3 +60,4 @@ Route::get('iva/{Articulo}/{precio}',[ControladorPrecios::class, 'IVA']);
 //
 
 Route::resource('cursos', cursoController::class);
+Route::resource('docentes', DocenteController::class);

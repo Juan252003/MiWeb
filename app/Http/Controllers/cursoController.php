@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeCursoRequest;
 use Illuminate\Http\Request;
 use App\Models\curso;
 
@@ -38,8 +39,13 @@ class cursoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(storeCursoRequest $request)
+    {   
+        /*$validacionDatos = $request->validate([
+            'nombre'=>'required|max:10',
+            'imagen'=>'required|image'
+        ]);*/
+        
         //con el metodo all() veo toda la informacion
         //return $request->all();
 
@@ -57,6 +63,10 @@ class cursoController extends Controller
         }
         $cursito->save();
         return 'waw lo lograstes guardar';
+
+        //implementamos validaciones del
+        
+        
     }
 
     /**

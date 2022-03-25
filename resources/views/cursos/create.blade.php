@@ -10,6 +10,18 @@
     <br>
     <form action="/cursos" method="POST" enctype="multipart/form-data">
         @csrf
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $alerta)
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <li>{{$alerta}}</li>
+                    </ul>
+                </div>
+                
+            @endforeach
+        @endif
+
         <div class="form-group">
             <label for="nombrecurso">Nombre del Curso</label>
             <input name="nombre" type="text" class="form-control" id="nombrecurso">
