@@ -35,6 +35,10 @@
             <br>
             <input name="imagen" type="file" id="imagen">
         </div>
+        <div class="form-group">
+            <label for="horas">Horas del Curso</label>
+            <input name="horas" type="number" min="1" class="form-control" id="horas">
+        </div>
         <button type="submit" class="btn btn-danger">Crear</button>
     </form>
 

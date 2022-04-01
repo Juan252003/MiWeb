@@ -61,6 +61,7 @@ class cursoController extends Controller
         if ($request->hasFile('imagen')){
             $cursito->imagen = $request->file('imagen')->store('public');
         }
+        $cursito->horas = $request->input('horas');
         $cursito->save();
         return 'waw lo lograstes guardar';
 
@@ -124,6 +125,17 @@ class cursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cursito= curso::find($id);
+        $nombre = $cursito->nombre;
+        $urlImagenBD = $cursito->imagen;
+        //return $urlImagenBD;
+        $nombreImagen = str_replace('public/','\storage\\',$urlImagenBD);
+        //return nombreImagen;
+        $rutaCompleta = public_path().$nombreImagen;
+        //return $rutaCompleta;
+
+        unlink($rutaCompleta);
+        $cursito->delete();
+        return 'El curso ' .$nombre. ' ha sido eliminado';
     }
 }
